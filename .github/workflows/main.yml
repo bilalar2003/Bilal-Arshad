@@ -1,0 +1,33 @@
+name: SQL Validation Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  sql-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up MySQL
+      uses: mirromutth/mysql-action@v1
+      with:
+        mysql-version: '8.0' # Use appropriate MySQL version
+        root-password: root # Default root password
+
+    - name: Create database for testing
+      run: |
+        mysql -u root -proot -e "CREATE DATABASE test_db;"
+
+    - name: Run SQL script
+      run: |
+        mysql -u root -proot test_db < ./path/to/your/sql/file.sql
+
+    - name: Validate SQL execution
+      run: |
+        mysql -u root -proot -e "USE test_db; SELECT * FROM User;"
