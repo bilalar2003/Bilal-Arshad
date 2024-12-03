@@ -14,3 +14,5 @@ VALUES
     ('Mike Johnson', 'mikejohnson@example.com', 'password789'),
     ('Alice Brown', 'alicebrown@example.com', 'password101'),
     ('Tom Clark', 'tomclark@example.com', 'password202');
+
+-- Test comment
