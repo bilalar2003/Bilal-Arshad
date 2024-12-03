@@ -1,5 +1,5 @@
 -- Create User table
-CREATE TABLE User (
+CREATE TABLE `User` (
     userId INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(100) NOT NULL,
     Email VARCHAR(100) NOT NULL UNIQUE,
@@ -7,7 +7,7 @@ CREATE TABLE User (
 );
 
 -- Insert dummy data into User table
-INSERT INTO User (Name, Email, Password)
+INSERT INTO `User` (Name, Email, Password)
 VALUES 
     ('John Doe', 'johndoe@example.com', 'password123'),
     ('Jane Smith', 'janesmith@example.com', 'password456'),
